@@ -37,7 +37,7 @@
 -(void)prepareLayout {
     [super prepareLayout];
     
-    CGRect visibleRect = CGRectInset((CGRect){.origin = self.collectionView.bounds.origin, .size = self.collectionView.frame.size}, -800, -800);
+    CGRect visibleRect = CGRectInset((CGRect){.origin = self.collectionView.bounds.origin, .size = self.collectionView.frame.size}, -1000, -1000);
     
     NSArray *itemsInVisibleRectArray = [super layoutAttributesForElementsInRect:visibleRect];
     
@@ -86,7 +86,12 @@
 -(BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds {
     if (self.isEnabled) {
         UIScrollView *scrollView = self.collectionView;
+
         CGFloat delta = newBounds.origin.x - scrollView.bounds.origin.x;
+
+        if (self.scrollDirection == UICollectionViewScrollDirectionVertical) {
+            delta = newBounds.origin.y - scrollView.bounds.origin.y;
+        }
 
         self.latestDelta = delta;
         
@@ -118,12 +123,25 @@
     if (!CGPointEqualToPoint(CGPointZero, touchLocation)) {
         CGPoint center = item.center;
         CGFloat xDistanceFromTouch = fabsf(touchLocation.x - springBehaviour.anchorPoint.x);
+        CGFloat yDistanceFromTouch = fabsf(touchLocation.y - springBehaviour.anchorPoint.y);
         CGFloat scrollResistance = (xDistanceFromTouch) / cScrollResistanceScalar;
 
+        if (self.scrollDirection == UICollectionViewScrollDirectionVertical) {
+            scrollResistance = (yDistanceFromTouch) / cScrollResistanceScalar;
+        }
+
         if (self.latestDelta < 0) {
-            center.x += floorf(MAX(self.latestDelta, self.latestDelta * scrollResistance));
+            if (self.scrollDirection == UICollectionViewScrollDirectionHorizontal) {
+                center.x += floorf(MAX(self.latestDelta, self.latestDelta * scrollResistance));
+            } else {
+                center.y += floorf(MAX(self.latestDelta, self.latestDelta * scrollResistance));
+            }
         } else if (self.latestDelta > 0){
-            center.x += floorf(MIN(self.latestDelta, self.latestDelta * scrollResistance));
+            if (self.scrollDirection == UICollectionViewScrollDirectionHorizontal) {
+                center.x += floorf(MIN(self.latestDelta, self.latestDelta * scrollResistance));
+            } else {
+                center.y += floorf(MIN(self.latestDelta, self.latestDelta * scrollResistance));
+            }
         }
 
         item.center = center;
