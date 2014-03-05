@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "1A95B8C618C48CDA00924357"
-               BuildableName = "SpringCollectionView.app"
-               BlueprintName = "SpringCollectionView"
-               ReferencedContainer = "container:SpringCollectionView.xcodeproj">
+               BuildableName = "BouncyCollectionView.app"
+               BlueprintName = "BouncyCollectionView"
+               ReferencedContainer = "container:BouncyCollectionView.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "1A95B8E718C48CDA00924357"
-               BuildableName = "SpringCollectionViewTests.xctest"
-               BlueprintName = "SpringCollectionViewTests"
-               ReferencedContainer = "container:SpringCollectionView.xcodeproj">
+               BuildableName = "BouncyCollectionViewTests.xctest"
+               BlueprintName = "BouncyCollectionViewTests"
+               ReferencedContainer = "container:BouncyCollectionView.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1A95B8C618C48CDA00924357"
-            BuildableName = "SpringCollectionView.app"
-            BlueprintName = "SpringCollectionView"
-            ReferencedContainer = "container:SpringCollectionView.xcodeproj">
+            BuildableName = "BouncyCollectionView.app"
+            BlueprintName = "BouncyCollectionView"
+            ReferencedContainer = "container:BouncyCollectionView.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1A95B8C618C48CDA00924357"
-            BuildableName = "SpringCollectionView.app"
-            BlueprintName = "SpringCollectionView"
-            ReferencedContainer = "container:SpringCollectionView.xcodeproj">
+            BuildableName = "BouncyCollectionView.app"
+            BlueprintName = "BouncyCollectionView"
+            ReferencedContainer = "container:BouncyCollectionView.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -80,9 +80,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1A95B8C618C48CDA00924357"
-            BuildableName = "SpringCollectionView.app"
-            BlueprintName = "SpringCollectionView"
-            ReferencedContainer = "container:SpringCollectionView.xcodeproj">
+            BuildableName = "BouncyCollectionView.app"
+            BlueprintName = "BouncyCollectionView"
+            ReferencedContainer = "container:BouncyCollectionView.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
