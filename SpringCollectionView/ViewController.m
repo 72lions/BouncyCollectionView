@@ -18,7 +18,7 @@
 
 @implementation ViewController
 
-static NSString *CellIdentifier = @"SpringyCell";
+static NSString *CellIdentifier = @"BouncyCell";
 
 - (void)viewDidLoad
 {
@@ -26,6 +26,7 @@ static NSString *CellIdentifier = @"SpringyCell";
 	// Do any additional setup after loading the view, typically from a nib.
     [self.collectionView registerClass:[CustomCell class] forCellWithReuseIdentifier:CellIdentifier];
     self.collectionView.collectionViewLayout = [[BouncyCollectionViewFlowLayout alloc] init];
+//    ((BouncyCollectionViewFlowLayout*)self.collectionView.collectionViewLayout).isEnabled = NO;
 }
 
 - (void)didReceiveMemoryWarning

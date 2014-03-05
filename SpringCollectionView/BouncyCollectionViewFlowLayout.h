@@ -9,5 +9,6 @@
 
 @interface BouncyCollectionViewFlowLayout : UICollectionViewFlowLayout
 
+@property (nonatomic, assign) BOOL isEnabled;
 
 @end

@@ -14,6 +14,7 @@
 
 @property (nonatomic, strong) NSMutableSet *visibleIndexPathsSet;
 @property (nonatomic, assign) CGFloat latestDelta;
+@property (nonatomic, assign) BOOL enabled;
 
 @end
 
@@ -29,7 +30,7 @@
     self.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     self.dynamicAnimator = [[UIDynamicAnimator alloc] initWithCollectionViewLayout:self];
     self.visibleIndexPathsSet = [NSMutableSet set];
-    
+    self.isEnabled = YES;
     return self;
 }
 
@@ -83,23 +84,27 @@
 }
 
 -(BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds {
-    UIScrollView *scrollView = self.collectionView;
-    CGFloat delta = newBounds.origin.x - scrollView.bounds.origin.x;
+    if (self.isEnabled) {
+        UIScrollView *scrollView = self.collectionView;
+        CGFloat delta = newBounds.origin.x - scrollView.bounds.origin.x;
 
-    self.latestDelta = delta;
-    
-    CGPoint touchLocation = [self.collectionView.panGestureRecognizer locationInView:self.collectionView];
-    
-    [self.dynamicAnimator.behaviors enumerateObjectsUsingBlock:^(UIAttachmentBehavior *springBehavior, NSUInteger idx, BOOL *stop) {
+        self.latestDelta = delta;
+        
+        CGPoint touchLocation = [self.collectionView.panGestureRecognizer locationInView:self.collectionView];
+        
+        [self.dynamicAnimator.behaviors enumerateObjectsUsingBlock:^(UIAttachmentBehavior *springBehavior, NSUInteger idx, BOOL *stop) {
 
-        UICollectionViewLayoutAttributes *item = [self updateItemInSpringBehavior:springBehavior
-                                                                withTouchLocation:touchLocation];
+            UICollectionViewLayoutAttributes *item = [self updateItemInSpringBehavior:springBehavior
+                                                                    withTouchLocation:touchLocation];
 
-        [self.dynamicAnimator updateItemUsingCurrentState:item];
-            
-    }];
-    
-    return NO;
+            [self.dynamicAnimator updateItemUsingCurrentState:item];
+                
+        }];
+
+        return NO;
+    }
+
+    return YES;
 }
 
 - (UICollectionViewLayoutAttributes*)updateItemInSpringBehavior:(UIAttachmentBehavior *)springBehaviour
@@ -124,6 +129,16 @@
         item.center = center;
     }
     return item;
+}
+
+-(BOOL)isEnabled
+{
+    return _enabled;
+}
+
+-(void)setIsEnabled:(BOOL)isEnabled
+{
+    _enabled = isEnabled;
 }
 
 @end
