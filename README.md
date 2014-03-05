@@ -1,12 +1,13 @@
 Collection view with spring physics
 ========================
 
-Similar to what the Messages app does, but instead of a vertical scrolling, this one is horizontal.
+Similar to what the Messages app does, that supports both vertical and horizontal scrolling.
+This small experiment is heavily inspired by Ash Furrow's guide on
+  [UICollectionView + UIKit Dynamics](http://www.objc.io/issue-5/collection-views-and-uidynamics.html).
+
 
 ![SpringCollectionView](http://cl.ly/image/3d1a0F1Z390A/SpringCollectionView.gif)
 
-* This small experiment is heavily inspired by Ash Furrow's guide on
-  [UICollectionView + UIKit Dynamics](http://www.objc.io/issue-5/collection-views-and-uidynamics.html).
 
 
 ## License
@@ -20,3 +21,4 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE
+
