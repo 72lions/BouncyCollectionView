@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "SpringCollectionViewFlowLayout.h"
+#import "BouncyCollectionViewFlowLayout.h"
 #import "CustomCell.h"
 
 @interface ViewController ()
@@ -25,7 +25,7 @@ static NSString *CellIdentifier = @"SpringyCell";
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     [self.collectionView registerClass:[CustomCell class] forCellWithReuseIdentifier:CellIdentifier];
-    self.collectionView.collectionViewLayout = [[SpringCollectionViewFlowLayout alloc] init];
+    self.collectionView.collectionViewLayout = [[BouncyCollectionViewFlowLayout alloc] init];
 }
 
 - (void)didReceiveMemoryWarning

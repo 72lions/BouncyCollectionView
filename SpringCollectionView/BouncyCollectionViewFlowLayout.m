@@ -1,14 +1,14 @@
 //
-//  SpringyCollectionViewFlowLayout.m
+//  BouncyCollectionViewFlowLayout.m
 //  SpringCollectionView
 //
 //  Created by Thodoris on 03/03/14.
 //  Copyright (c) 2014 72lions. All rights reserved.
 //
 
-#import "SpringCollectionViewFlowLayout.h"
+#import "BouncyCollectionViewFlowLayout.h"
 
-@interface SpringCollectionViewFlowLayout ()
+@interface BouncyCollectionViewFlowLayout ()
 
 @property (nonatomic, strong) UIDynamicAnimator *dynamicAnimator;
 
@@ -17,7 +17,7 @@
 
 @end
 
-@implementation SpringCollectionViewFlowLayout
+@implementation BouncyCollectionViewFlowLayout
 
 -(id)init {
     if (!(self = [super init])) return nil;
@@ -67,18 +67,7 @@
         springBehaviour.damping = 0.8f;
         springBehaviour.frequency = 2.f;
 
-        if (!CGPointEqualToPoint(CGPointZero, touchLocation)) {
-            CGFloat xDistanceFromTouch = fabsf(touchLocation.x - springBehaviour.anchorPoint.x);
-            CGFloat scrollResistance = (xDistanceFromTouch) / 1500.0f;
-
-            if (self.latestDelta < 0) {
-                center.x += MAX(self.latestDelta, self.latestDelta * scrollResistance);
-            } else {
-                center.x += MIN(self.latestDelta, self.latestDelta * scrollResistance);
-            }
-
-            item.center = center;
-        }
+        [self updateItemInSpringBehavior:springBehaviour withTouchLocation:touchLocation];
 
         [self.dynamicAnimator addBehavior:springBehaviour];
         [self.visibleIndexPathsSet addObject:item.indexPath];
@@ -103,25 +92,38 @@
     
     [self.dynamicAnimator.behaviors enumerateObjectsUsingBlock:^(UIAttachmentBehavior *springBehavior, NSUInteger idx, BOOL *stop) {
 
-        CGFloat xDistanceFromTouch = fabsf(touchLocation.x - springBehavior.anchorPoint.x);
-        CGFloat scrollResistance = (xDistanceFromTouch) / 1500.0f;
-
-        UICollectionViewLayoutAttributes *item = [springBehavior.items firstObject];
-        CGPoint center = item.center;
-
-        if (delta < 0) {
-            center.x += MAX(delta, delta * scrollResistance);
-        } else {
-            center.x += MIN(delta, delta * scrollResistance);
-        }
-
-        item.center = center;
+        UICollectionViewLayoutAttributes *item = [self updateItemInSpringBehavior:springBehavior
+                                                                withTouchLocation:touchLocation];
 
         [self.dynamicAnimator updateItemUsingCurrentState:item];
             
     }];
     
     return NO;
+}
+
+- (UICollectionViewLayoutAttributes*)updateItemInSpringBehavior:(UIAttachmentBehavior *)springBehaviour
+                                              withTouchLocation:(CGPoint)touchLocation
+{
+    static const float cScrollResistanceScalar = 3500.f;
+
+    UICollectionViewLayoutAttributes *item = [springBehaviour.items firstObject];
+
+    // If our touchLocation is not (0,0), we'll need to adjust our item's center "in flight"
+    if (!CGPointEqualToPoint(CGPointZero, touchLocation)) {
+        CGPoint center = item.center;
+        CGFloat xDistanceFromTouch = fabsf(touchLocation.x - springBehaviour.anchorPoint.x);
+        CGFloat scrollResistance = (xDistanceFromTouch) / cScrollResistanceScalar;
+
+        if (self.latestDelta < 0) {
+            center.x += floorf(MAX(self.latestDelta, self.latestDelta * scrollResistance));
+        } else if (self.latestDelta > 0){
+            center.x += floorf(MIN(self.latestDelta, self.latestDelta * scrollResistance));
+        }
+
+        item.center = center;
+    }
+    return item;
 }
 
 @end

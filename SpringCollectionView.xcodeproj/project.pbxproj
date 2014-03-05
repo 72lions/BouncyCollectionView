@@ -21,7 +21,7 @@
 		1A95B8EC18C48CDA00924357 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A95B8CE18C48CDA00924357 /* UIKit.framework */; };
 		1A95B8F418C48CDA00924357 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1A95B8F218C48CDA00924357 /* InfoPlist.strings */; };
 		1A95B8F618C48CDA00924357 /* SpringCollectionViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A95B8F518C48CDA00924357 /* SpringCollectionViewTests.m */; };
-		1A95B90118C48D5900924357 /* SpringCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A95B90018C48D5900924357 /* SpringCollectionViewFlowLayout.m */; };
+		1A95B90118C48D5900924357 /* BouncyCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A95B90018C48D5900924357 /* BouncyCollectionViewFlowLayout.m */; };
 		1AC61C2218C52E2B00248DA6 /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AC61C2118C52E2B00248DA6 /* CustomCell.m */; };
 /* End PBXBuildFile section */
 
@@ -55,8 +55,8 @@
 		1A95B8F118C48CDA00924357 /* SpringCollectionViewTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SpringCollectionViewTests-Info.plist"; sourceTree = "<group>"; };
 		1A95B8F318C48CDA00924357 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1A95B8F518C48CDA00924357 /* SpringCollectionViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpringCollectionViewTests.m; sourceTree = "<group>"; };
-		1A95B8FF18C48D5900924357 /* SpringCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpringCollectionViewFlowLayout.h; sourceTree = "<group>"; };
-		1A95B90018C48D5900924357 /* SpringCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpringCollectionViewFlowLayout.m; sourceTree = "<group>"; };
+		1A95B8FF18C48D5900924357 /* BouncyCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BouncyCollectionViewFlowLayout.h; sourceTree = "<group>"; };
+		1A95B90018C48D5900924357 /* BouncyCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BouncyCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		1AC61C2018C52E2B00248DA6 /* CustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCell.h; sourceTree = "<group>"; };
 		1AC61C2118C52E2B00248DA6 /* CustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -118,8 +118,8 @@
 		1A95B8D018C48CDA00924357 /* SpringCollectionView */ = {
 			isa = PBXGroup;
 			children = (
-				1A95B8FF18C48D5900924357 /* SpringCollectionViewFlowLayout.h */,
-				1A95B90018C48D5900924357 /* SpringCollectionViewFlowLayout.m */,
+				1A95B8FF18C48D5900924357 /* BouncyCollectionViewFlowLayout.h */,
+				1A95B90018C48D5900924357 /* BouncyCollectionViewFlowLayout.m */,
 				1A95B8D918C48CDA00924357 /* AppDelegate.h */,
 				1A95B8DA18C48CDA00924357 /* AppDelegate.m */,
 				1A95B8DC18C48CDA00924357 /* Main.storyboard */,
@@ -262,7 +262,7 @@
 				1A95B8E118C48CDA00924357 /* ViewController.m in Sources */,
 				1A95B8DB18C48CDA00924357 /* AppDelegate.m in Sources */,
 				1A95B8D718C48CDA00924357 /* main.m in Sources */,
-				1A95B90118C48D5900924357 /* SpringCollectionViewFlowLayout.m in Sources */,
+				1A95B90118C48D5900924357 /* BouncyCollectionViewFlowLayout.m in Sources */,
 				1AC61C2218C52E2B00248DA6 /* CustomCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

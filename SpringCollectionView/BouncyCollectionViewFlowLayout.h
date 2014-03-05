@@ -1,5 +1,5 @@
 //
-//  SpringyCollectionViewFlowLayout.h
+//  BouncyCollectionViewFlowLayout.h
 //  SpringCollectionView
 //
 //  Created by Thodoris on 03/03/14.
@@ -7,6 +7,7 @@
 //
 #import <UIKit/UIKit.h>
 
-@interface SpringCollectionViewFlowLayout : UICollectionViewFlowLayout
+@interface BouncyCollectionViewFlowLayout : UICollectionViewFlowLayout
+
 
 @end
